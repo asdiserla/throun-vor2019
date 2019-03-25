@@ -1,4 +1,4 @@
-package dayTours;
+package sample;
 
 public class Controller {
 }
