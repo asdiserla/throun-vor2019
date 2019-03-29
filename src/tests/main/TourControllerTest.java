@@ -4,6 +4,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Date;
+
 import static org.junit.Assert.*;
 
 public class TourControllerTest {
@@ -18,9 +20,14 @@ public class TourControllerTest {
 
     @Test
     public void search() {
+
     }
 
     @Test
     public void search1() {
+    }
+
+    @Test
+    public void search2() {
     }
 }
