@@ -1,4 +1,7 @@
-package main;
+package controller;
+
+import model.TourFilter;
+import model.Tour;
 
 import java.util.ArrayList;
 
