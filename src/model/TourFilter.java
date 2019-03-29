@@ -1,5 +1,7 @@
-package main;
+package model;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class TourFilter {
@@ -12,6 +14,9 @@ public class TourFilter {
     public String groupType;
     public Date timeStart;
     public Date timeFinish;
+
+    private ArrayList<Tour> tourList;
+    private int totalPrice;
 
     /**
      * Constructor for tour TourFilter class
@@ -34,6 +39,29 @@ public class TourFilter {
         this.groupType = groupType;
         this.timeStart = timeStart;
         this.timeFinish = timeFinish;
+    }
+
+    public void TourFound(ArrayList<Tour> tours) {
+        this.tourList = tours;
+        calculatePrice();
+    }
+
+    private void calculatePrice() {
+        totalPrice = 0;
+        for (int i = 0; i < tourList.size(); i++) {
+            totalPrice += tourList.get(i).getPrice();
+        }
+    }
+
+    public int getTourCount() {
+        return tourList.size();
+    }
+
+    public void showTour() {
+        for (int i = 0; i < tourList.size(); i++) {
+            System.out.println("Name of your: " + tourList.get(i).getTourName()
+                    + "with the total price of: " + tourList.get(i).getPrice());
+        }
     }
 
 
