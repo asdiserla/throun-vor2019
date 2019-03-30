@@ -14,10 +14,11 @@ import static org.junit.Assert.*;
 
 public class TourFilterTest {
 
-
     @org.junit.Before
     public void setUp() throws Exception {
-        //mock gagnagrunnur búa til 3 ferðir sem má leita í
+        // mock gagnagrunnur búa til 3 ferðir sem má leita í
+        // setja þær þannig upp að þær henti fyrir search til að leita í,
+        //     þar sem interfacið gæti þurft að koma inn
     }
 
     @org.junit.After
@@ -26,11 +27,11 @@ public class TourFilterTest {
     }
 
     @org.junit.Test
-    public void correctSerchTest(){
+    public void correctSearchTest(){
         //Þetta próf á að skila réttri ferð
         System.out.println("baby girl");
         /**
-         * serch á að skila ferð sem er til í gagnagrunni ef skilyrðin
+         * search á að skila ferð sem er til í gagnagrunni ef skilyrðin
          * eru uppfyllt. Bera saman ferðina sem við fáum og það em við vildum fá.
          *
          * Byrjum á að búa til tour object.
@@ -48,13 +49,13 @@ public class TourFilterTest {
 
 
     @org.junit.Test
-    public void failedSerchTest(){
+    public void failedSearchTest(){
         //Þetta próf á að skila
         System.out.println("baby girl");
     }
 
     @org.junit.Test
-    public void errorSerchTest(){
+    public void errorSearchTest(){
         System.out.println("baby girl");
     }
 

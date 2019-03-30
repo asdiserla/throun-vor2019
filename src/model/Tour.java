@@ -33,6 +33,7 @@ public class Tour {
     /**
      * Constructor for Tour class
      * @param id
+     * @param tourName
      * @param price
      * @param type
      * @param location
