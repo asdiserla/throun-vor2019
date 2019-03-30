@@ -15,8 +15,9 @@ public class TourFilter {
     public Date timeStart;
     public Date timeFinish;
 
-    private ArrayList<Tour> tourList;
-    private int totalPrice;
+
+    //private ArrayList<Tour> tourList;
+    //private int totalPrice;
 
     /**
      * Constructor for tour TourFilter class
@@ -41,32 +42,36 @@ public class TourFilter {
         this.timeFinish = timeFinish;
     }
 
-    public void userInput() {
-        new TourFilter();
-    }
 
+
+
+    /*
+>>>>>>> 711fdc71af12584065c3c744cd345fb80fcfdf6c
     public void TourFound(ArrayList<Tour> tours) {
         this.tourList = tours;
         calculatePrice();
     }
-
+    */
+    /*
     private void calculatePrice() {
         totalPrice = 0;
         for (int i = 0; i < tourList.size(); i++) {
             totalPrice += tourList.get(i).getPrice();
         }
     }
-
+    */
+    /*
     public int getTourCount() {
         return tourList.size();
-    }
+    }*/
 
+    /*
     public void showTour() {
         for (int i = 0; i < tourList.size(); i++) {
             System.out.println("Name of your: " + tourList.get(i).getTourName()
                     + "with the total price of: " + tourList.get(i).getPrice());
         }
-    }
+    }*/
 
 
     /*ættum að bæta við setters sem athuga hvort að parametrarnir séu réttir
