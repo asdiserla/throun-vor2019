@@ -17,11 +17,12 @@ public class TourController {
         return listOfTours;
     }
 
+    /*
     public void bookTour() {
 
     }
 
     public void payTour() {
 
-    }
+    }*/
 }
