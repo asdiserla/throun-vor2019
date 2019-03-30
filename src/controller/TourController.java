@@ -14,8 +14,11 @@ public class TourController {
      */
     public ArrayList<Tour> search(TourFilter filter) {
         ArrayList<Tour> listOfTours = new ArrayList<Tour>();
+
+
         return listOfTours;
     }
+
 
     /*
     public void bookTour() {

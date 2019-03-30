@@ -17,7 +17,11 @@ public class Tour {
     public String about;        // aukalega
     public Date timeStart;
     public Date timeFinish;
-    public Image image;         // aukalega
+    public boolean guidedTour;
+    public boolean privateTour;
+    public boolean accessibility;
+    //public Image image;         // aukalega
+    //Nennti ekki að implementa fyrir þetta verkefni hehehe
 
     // var að bæta við kv ásdis
     // private Boolean freeSeat;
@@ -35,11 +39,12 @@ public class Tour {
      * @param about
      * @param timeStart
      * @param timeFinish
-     * @param image
+     * @param //image
      */
     public Tour (int id, String tourName, int price, String type,
                 String location, String about, Date timeStart,
-                Date timeFinish, Image image) {
+                Date timeFinish,/*Image image, */boolean guidedTour,
+                 boolean privateTour, boolean accessibility) {
         this.id = id;
         this.tourName = tourName;
         this.price = price;
@@ -48,7 +53,10 @@ public class Tour {
         this.about = about;
         this.timeStart = timeStart;
         this.timeFinish = timeFinish;
-        this.image = image;
+        //this.image = image;
+        this.guidedTour  = guidedTour;
+        this.privateTour = privateTour;
+        this.accessibility = accessibility;
     }
 
     /**
