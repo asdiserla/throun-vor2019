@@ -32,6 +32,7 @@ public class Tour {
     /**
      * Constructor for Tour class
      * @param id
+     * @param tourName
      * @param priceLow
      * @param priceHigh
      * @param groupSize
@@ -47,7 +48,7 @@ public class Tour {
                 String location, String groupType, String about, Date timeStart,
                 Date timeFinish, Image image) {
         this.id = id;
-        this.tourName = name;
+        this.tourName = tourName;
         this.priceLow = priceLow;
         this.priceHigh = priceHigh;
         this.groupSize = groupSize;

@@ -41,6 +41,10 @@ public class TourFilter {
         this.timeFinish = timeFinish;
     }
 
+    public void userInput() {
+        new TourFilter();
+    }
+
     public void TourFound(ArrayList<Tour> tours) {
         this.tourList = tours;
         calculatePrice();
