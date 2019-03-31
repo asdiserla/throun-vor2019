@@ -1,4 +1,5 @@
 // simulates a given trip
+package dayTours;
 
 import model.Tour;
 
