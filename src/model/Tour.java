@@ -12,7 +12,7 @@ public class Tour {
     public int id;              // aukalega
     public String tourName;
     public int price;
-    public String type;
+    public String tourType;
     public String location;
     public String about;        // aukalega
     public Date timeStart;
@@ -20,6 +20,7 @@ public class Tour {
     public boolean guidedTour;
     public boolean privateTour;
     public boolean accessibility;
+
     //public Image image;         // aukalega
     //Nennti ekki að implementa fyrir þetta verkefni hehehe
 
@@ -30,26 +31,16 @@ public class Tour {
     // private ArrayList<TourFilter> results;
     private TourController tourController;
 
-    /**
-     * Constructor for Tour class
-     * @param id
-     * @param tourName
-     * @param price
-     * @param type
-     * @param location
-     * @param about
-     * @param timeStart
-     * @param timeFinish
-     * @param //image
-     */
-    public Tour (int id, String tourName, int price, String type,
+
+    public Tour (int id, String tourName, int price, String tourType,
                 String location, String about, Date timeStart,
                 Date timeFinish,/*Image image, */boolean guidedTour,
                  boolean privateTour, boolean accessibility) {
+
         this.id = id;
         this.tourName = tourName;
         this.price = price;
-        this.type = type;
+        this.tourType = tourType;
         this.location = location;
         this.about = about;
         this.timeStart = timeStart;
@@ -85,8 +76,11 @@ public class Tour {
         }*/
     }
 
+
+
     public int getPrice() {
-        return price; // TODO hvar kemur verðið sem notandinn kemur inn??
+        // DONE lagaði þannig að price í tour er ekki lengur low eða high það er bara eitt verð, hitt meikaði ekki sense
+        return price;
     }
 
     public String getTourName() {

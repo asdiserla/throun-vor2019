@@ -5,6 +5,7 @@ import model.Tour;
 
 import java.util.Date;
 
+/*
 public class tripDBMock {
     public int id;              // aukalega
     public String tourName;
@@ -31,7 +32,9 @@ public class tripDBMock {
         }
 
         public tripDBMock getTrip(){
-            return new Tour();
+            //return new Tour();
+            return 0;
         }
     }
 
+*/
