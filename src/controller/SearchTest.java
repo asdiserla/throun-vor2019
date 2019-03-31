@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
  * 4. ...?
  */
 
-public class TourControllerTest {
+public class SearchTest {
 
     private TourFilter tourfilter;
     private SimpleDateFormat startSDF;
