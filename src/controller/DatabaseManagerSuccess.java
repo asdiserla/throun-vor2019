@@ -1,16 +1,13 @@
 package controller;
 
-import controller.DatabaseManager;
 import model.Tour;
 import model.TourFilter;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.LinkedList;
 
-public class DatabaseInterfaceResult implements DatabaseManager {
+public class DatabaseManagerSuccess implements DatabaseManagerInterface {
 
     @Override
     public void openDB() {
@@ -23,7 +20,7 @@ public class DatabaseInterfaceResult implements DatabaseManager {
     }
 
     @Override
-    public ArrayList<Tour> selectTours(TourFilter filter) {
+    public LinkedList<Tour> selectTours(TourFilter filter) {
 
         Date dateStart = new Calendar.Builder()
                         .setDate(2012, 2, 21)
@@ -41,16 +38,16 @@ public class DatabaseInterfaceResult implements DatabaseManager {
                              "Reykjavík", "foo bar lorem ipsum", dateStart,
                               dateFinish, true, false, true);
 
-        Tour tour2 = new Tour(1,"foo", 22000, "food",
+
+        Tour tour2 = new Tour(2,"foo", 22000, "food",
                             "Reykjavík", "hello world", dateStart,
                             dateFinish, true, false, true);
 
-        Tour tour3 = new Tour(1,"foo", 18000, "food",
+        Tour tour3 = new Tour(3,"foo", 18000, "food",
                     "Reykjavík", "hello world og sigga", dateStart,
                             dateFinish, true, false, true);
 
-        ArrayList<Tour> result = new ArrayList<Tour>();
-
+        LinkedList<Tour> result = new LinkedList<Tour>();
 
         result.add(tour1);
         result.add(tour2);
