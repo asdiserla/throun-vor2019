@@ -1,12 +1,11 @@
 package controller;
 
-import controller.DatabaseManager;
 import model.Tour;
 import model.TourFilter;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 
-public class DatabaseInterfaceNoResult implements DatabaseManager {
+public class DatabaseManagerEmpty implements DatabaseManagerInterface {
 
     @Override
     public void openDB() {
@@ -19,9 +18,8 @@ public class DatabaseInterfaceNoResult implements DatabaseManager {
     }
 
     @Override
-    public ArrayList<Tour> selectTours(TourFilter filter) {
-        // skilar tómum array lista
-        ArrayList<Tour> result = new ArrayList<Tour>();
+    public LinkedList<Tour> selectTours(TourFilter filter) {
+        LinkedList<Tour> result = new LinkedList<Tour>();
         return result;
     }
 }

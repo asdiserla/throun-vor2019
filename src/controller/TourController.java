@@ -3,27 +3,25 @@ package controller;
 import model.TourFilter;
 import model.Tour;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class TourController {
 
-    public DatabaseManager databaseManager;
-    public ArrayList<Tour> result;
+    public DatabaseManagerInterface databaseManagerInterface;
+    public LinkedList<Tour> result;
 
-    public TourController(DatabaseManager databaseManager) {
-        this.databaseManager = databaseManager;
+    public TourController(DatabaseManagerInterface databaseManagerInterface) {
+        this.databaseManagerInterface = databaseManagerInterface;
     }
 
     /**
      * The search method for day tours
-     * @param filter
+     * @param filter the tour filter that the user chooses
      * @return
      */
-    public ArrayList<Tour> search(TourFilter filter) throws Exception {
-        result = databaseManager.selectTours(filter);
-        if (result.isEmpty()) throw new Exception("No tours mathced your preferences");
-        else return result;
+    public LinkedList<Tour> search(TourFilter filter) throws Exception {
+        result = databaseManagerInterface.selectTours(filter);
+        return result;
     }
 
 

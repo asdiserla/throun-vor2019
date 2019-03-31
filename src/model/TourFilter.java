@@ -1,7 +1,6 @@
 package model;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Date;
 
 public class TourFilter {
@@ -18,7 +17,6 @@ public class TourFilter {
     public boolean accessibility;
 
 
-    //private ArrayList<Tour> tourList;
     //private int totalPrice;
 
     public TourFilter(int priceHigh, int priceLow, int groupSize,
@@ -37,9 +35,6 @@ public class TourFilter {
         this.privateTour = privateTour;
         this.accessibility = accessibility;
     }
-
-
-
 
 
     /*

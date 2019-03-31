@@ -6,10 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -17,15 +14,18 @@ import static org.junit.Assert.*;
 public class SearchTest {
 
     private TourFilter filter;
-    private DatabaseInterfaceResult databaseManagerResult;
-    private DatabaseInterfaceNoResult databaseManagerNoResult;
-    private TourController tourController1;
-    private TourController tourController2;
+
+    private DatabaseManagerSuccess databaseManagerSuccess;
+    private DatabaseManagerEmpty databaseManagerEmpty;
+
+    private TourController tourControllerSuccess;
+    private TourController tourControllerEmpty;
+
     private Tour tour1;
     private Tour tour2;
     private Tour tour3;
-    private ArrayList<Tour> expectedResult;
 
+    private LinkedList<Tour> expectedResult;
 
     @Before
     public void setUp() throws Exception {
@@ -48,43 +48,49 @@ public class SearchTest {
                 "Reykjavík", "foo bar lorem ipsum", dateStart,
                 dateFinish, true, false, true);
 
-        tour2 = new Tour(1,"foo", 22000, "food",
+        tour2 = new Tour(2,"foo", 22000, "food",
                 "Reykjavík", "hello world", dateStart,
                 dateFinish, true, false, true);
 
-        tour3 = new Tour(1,"foo", 18000, "food",
+        tour3 = new Tour(3,"foo", 18000, "food",
                 "Reykjavík", "hello world og sigga", dateStart,
                 dateFinish, true, false, true);
 
-        expectedResult = new ArrayList<Tour>();
+        expectedResult = new LinkedList<Tour>();
 
         expectedResult.add(tour1);
         expectedResult.add(tour2);
         expectedResult.add(tour3);
 
-        databaseManagerResult = new DatabaseInterfaceResult();
-        databaseManagerNoResult = new DatabaseInterfaceNoResult();
-        databaseManagerResult.openDB();
-        databaseManagerNoResult.openDB();
+        databaseManagerSuccess = new DatabaseManagerSuccess();
+        databaseManagerEmpty = new DatabaseManagerEmpty();
 
-        tourController1 = new TourController(databaseManagerResult);
-        tourController2 = new TourController(databaseManagerNoResult);
+        databaseManagerSuccess.openDB();
+        databaseManagerEmpty.openDB();
+
+        tourControllerSuccess = new TourController(databaseManagerSuccess);
+        tourControllerEmpty = new TourController(databaseManagerEmpty);
     }
 
     @After
     public void tearDown() throws Exception {
-        databaseManagerResult.closeDB();
-        databaseManagerNoResult.closeDB();
+        databaseManagerSuccess.closeDB();
+        databaseManagerEmpty.closeDB();
     }
 
     @Test
-    public void searchTest1() throws Exception {
-        ArrayList<Tour> result = tourController1.search(filter);
-        //(expectedResult, samePropertyValuesAs(result));
+    public void searchTestSucces() throws Exception {
+        LinkedList<Tour> result = tourControllerSuccess.search(filter);
+        assertSame(expectedResult.size(), result.size());
+        for (int i = 0; i < expectedResult.size(); i++) {
+            assertSame(expectedResult.get(i).id, result.get(i).id);
+        }
     }
 
     @Test
-    public void searchTest2() {
-
+    public void searchTestEmpty() throws Exception {
+        LinkedList<Tour> result = tourControllerEmpty.search(filter);
+        assertNotNull(result);
+        assertEquals(0, result.size());
     }
 }
