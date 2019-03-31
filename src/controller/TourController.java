@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class TourController {
 
     public DatabaseManager databaseManager;
-    public ArrayList<Tour> resultArrayList;
+    public ArrayList<Tour> result;
 
     public TourController(DatabaseManager databaseManager) {
         this.databaseManager = databaseManager;
@@ -20,12 +20,10 @@ public class TourController {
      * @param filter
      * @return
      */
-    public ArrayList<Tour> search(TourFilter filter) {
-        ArrayList<Tour> listOfTours = new ArrayList<Tour>();
-
-
-
-        return listOfTours;
+    public ArrayList<Tour> search(TourFilter filter) throws Exception {
+        result = databaseManager.selectTours(filter);
+        if (result.isEmpty()) throw new Exception("No tours mathced your preferences");
+        else return result;
     }
 
 

@@ -11,7 +11,6 @@ public class TourFilter {
     public int groupSize;
     public String location;
     public String tourType;
-    public String groupType;
     public Date timeStart;
     public Date timeFinish;
     public boolean guidedTour;
@@ -23,7 +22,7 @@ public class TourFilter {
     //private int totalPrice;
 
     public TourFilter(int priceHigh, int priceLow, int groupSize,
-                      String location, String tourType, String groupType,
+                      String location, String tourType,
                       Date timeStart, Date timeFinish, boolean guidedTour,
                       boolean privateTour, boolean accessibility) {
 
@@ -32,7 +31,6 @@ public class TourFilter {
         this.groupSize = groupSize;
         this.location = location;
         this.tourType = tourType;
-        this.groupType = groupType;
         this.timeStart = timeStart;
         this.timeFinish = timeFinish;
         this.guidedTour = guidedTour;
