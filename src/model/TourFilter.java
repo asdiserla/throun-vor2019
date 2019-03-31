@@ -14,24 +14,19 @@ public class TourFilter {
     public String groupType;
     public Date timeStart;
     public Date timeFinish;
+    public boolean guidedTour;
+    public boolean privateTour;
+    public boolean accessibility;
 
 
     //private ArrayList<Tour> tourList;
     //private int totalPrice;
 
-    /**
-     * Constructor for tour TourFilter class
-     * @param priceHigh
-     * @param priceLow
-     * @param groupSize
-     * @param location
-     * @param tourType
-     * @param groupType
-     * @param timeStart
-     * @param timeFinish
-     */
-    public TourFilter(int priceHigh, int priceLow, int groupSize, String location,
-                           String tourType, String groupType, Date timeStart, Date timeFinish) {
+    public TourFilter(int priceHigh, int priceLow, int groupSize,
+                      String location, String tourType, String groupType,
+                      Date timeStart, Date timeFinish, boolean guidedTour,
+                      boolean privateTour, boolean accessibility) {
+
         this.priceHigh = priceHigh;
         this.priceLow = priceLow;
         this.groupSize = groupSize;
@@ -40,7 +35,11 @@ public class TourFilter {
         this.groupType = groupType;
         this.timeStart = timeStart;
         this.timeFinish = timeFinish;
+        this.guidedTour = guidedTour;
+        this.privateTour = privateTour;
+        this.accessibility = accessibility;
     }
+
 
 
 
