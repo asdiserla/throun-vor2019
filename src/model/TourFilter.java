@@ -38,7 +38,6 @@ public class TourFilter {
 
 
     /*
->>>>>>> 711fdc71af12584065c3c744cd345fb80fcfdf6c
     public void TourFound(ArrayList<Tour> tours) {
         this.tourList = tours;
         calculatePrice();
