@@ -2,7 +2,6 @@ package model;
 
 import javafx.scene.image.Image;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 import controller.TourController;
@@ -28,7 +27,6 @@ public class Tour {
     // private Boolean freeSeat;
     private int seatsLeft; // bætti þessu við, ætti kannski að vera public líka? kv stísa
 
-    // private ArrayList<TourFilter> results;
     private TourController tourController;
 
 
