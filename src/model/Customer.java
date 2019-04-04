@@ -20,6 +20,36 @@ public class Customer {
         this.tourPickID = tourPickID;
     }
 
+    public String getId() {
+        return id;
+    }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public Customer(String id) {
+        this.id = id;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public TourFilter getFilter() {
+        return filter;
+    }
+
+    public void setFilter(TourFilter filter) {
+        this.filter = filter;
+    }
 
 }

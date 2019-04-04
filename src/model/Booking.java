@@ -4,11 +4,11 @@ import java.util.Date;
 
 public class Booking {
 
-    public int tourId;
-    public int price;
-    public String customerId;
-    public Date time;
-    public int bookingStatus; //breyta þessu síðar kannsk
+    private int tourId;
+    private int price;
+    private String customerId;
+    private Date time;
+    private int bookingStatus; //breyta þessu síðar kannsk
 
     /**
      * Constructor for Booking class
@@ -18,7 +18,7 @@ public class Booking {
      * @param time
      * @param bookingStatus
      */
-    public Booking(int tourId, int price, String customerId,
+    private Booking(int tourId, int price, String customerId,
                    Date time, int bookingStatus) {
         this.tourId = tourId;
         this.price = price;
@@ -27,5 +27,23 @@ public class Booking {
         this.bookingStatus = bookingStatus;
     }
 
+    public int getTourId() {
+        return tourId;
+    }
 
+    public int getPrice() {
+        return price;
+    }
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public int getBookingStatus() {
+        return bookingStatus;
+    }
 }

@@ -28,18 +28,18 @@ public class DatabaseManager implements DatabaseManagerInterface {
         // load the sqlite-JDBC driver using the current class loader
         Class.forName("org.sqlite.JDBC");
 
-        int     tourId;
-        int     tourSeatsLeft;
-        String  tourName;
-        String  tourType;
-        String  tourLocation;
-        String  tourAbout;
-        String  tourTimeStart;
-        String  tourTimeFinish;
-        boolean tourIsPrivate;
-        boolean tourIsGuided;
-        boolean tourIsAccessable;
-        int     price;
+        int id;
+        int seatsLeft;
+        String tourName;
+        String tourType;
+        String location;
+        String aboutTour;
+        String timeStart;
+        String timeFinish;
+        int privateTour;
+        int guidedTour;
+        int accessibility;
+        int price;
 
         try {
             // create the database connection
@@ -48,7 +48,21 @@ public class DatabaseManager implements DatabaseManagerInterface {
             ResultSet rs = statement.executeQuery("SELECT * FROM DAYTOURS WHERE location = 'Reykjavík'");
             while(rs.next())
             {
-                // read the result set
+                id = rs.getInt("id");
+                tourName = rs.getString("tourName");
+                tourType = rs.getString("tourType");
+                location = rs.getString("location");
+                aboutTour = rs.getString("aboutTour");
+                timeStart = rs.getString("timeStart");
+                timeFinish = rs.getString("timeFinish");
+                seatsLeft = rs.getInt("seatsLeft");
+                privateTour = rs.getInt("privateTour");
+                guidedTour = rs.getInt("guidedTour");
+                accessibility = rs.getInt("accessibility");
+                seatsLeft = rs.getInt("seatsLeft");
+                price = rs.getInt("price");
+
+
                 System.out.println("id = " + rs.getInt("id"));
             }
 
