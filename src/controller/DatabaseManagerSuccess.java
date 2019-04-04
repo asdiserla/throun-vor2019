@@ -23,13 +23,13 @@ public class DatabaseManagerSuccess implements DatabaseManagerInterface {
     public LinkedList<Tour> selectTours(TourFilter filter) {
 
         Date dateStart = new Calendar.Builder()
-                        .setDate(2012, 2, 21)
-                        .setTimeOfDay(14, 0, 0)
+                        .setDate(2012,2,21)
+                        .setTimeOfDay(14,0,0)
                         .build().getTime();
 
         Date dateFinish = new Calendar.Builder()
-                        .setDate(2012, 2, 21)
-                        .setTimeOfDay(22, 0, 0)
+                        .setDate(2012,2,21)
+                        .setTimeOfDay(22,0,0)
                         .build().getTime();
 
 

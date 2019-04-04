@@ -30,13 +30,13 @@ public class SearchTest {
     @Before
     public void setUp() throws Exception {
         Date dateStart = new Calendar.Builder()
-                .setDate(2012, 2, 21)
-                .setTimeOfDay(14, 0, 0)
+                .setDate(2012,2,21)
+                .setTimeOfDay(14,0,0)
                 .build().getTime();
 
         Date dateFinish = new Calendar.Builder()
-                .setDate(2012, 2, 21)
-                .setTimeOfDay(22, 0, 0)
+                .setDate(2012,2,21)
+                .setTimeOfDay(22,0,0)
                 .build().getTime();
 
 
@@ -83,7 +83,13 @@ public class SearchTest {
         LinkedList<Tour> result = tourControllerSuccess.search(filter);
         assertSame(expectedResult.size(), result.size());
         for (int i = 0; i < expectedResult.size(); i++) {
-            assertSame(expectedResult.get(i).id, result.get(i).id);
+            assertSame(filter.location, result.get(i).location);
+            assertSame(filter.tourType, result.get(i).tourType);
+            assertSame(filter.accessibility, result.get(i).accessibility);
+            assertSame(filter.guidedTour, result.get(i).guidedTour);
+            assertSame(filter.privateTour, result.get(i).privateTour);
+            assertSame(0, filter.timeFinish.compareTo(result.get(i).timeFinish));
+            assertSame(0, filter.timeStart.compareTo(result.get(i).timeStart));
         }
     }
 
