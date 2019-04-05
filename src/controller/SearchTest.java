@@ -51,7 +51,6 @@ public class SearchTest {
     @Test
     public void searchTestSucces() throws Exception {
         LinkedList<Tour> result = tourControllerSuccess.search(filter);
-        //assertSame(expectedResult.size(), result.size());
         for (int i = 0; i < expectedResult.size(); i++) {
             assertSame(filter.getLocation(), result.get(i).getLocation());
             assertSame(filter.getTourType(), result.get(i).getTourType());

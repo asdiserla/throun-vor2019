@@ -36,14 +36,25 @@ public class Main extends Application {
                 "Bus ride", "06/09/19", true, false,
                 false);
 
-        //DatabaseManager db = new DatabaseManager();
+
         LinkedList<Tour> result = new LinkedList<Tour>();
+
+        db.removeSeats(0, 9, 18);
+
         result = db.selectTours(filter);
 
-        Tour selected = result.getFirst();
 
-        System.out.println("Name of first trip found: " + selected.getTourName());
-        System.out.println("Number of trips found: " + tourController.getNumTripsFound());
+        if (result.size() > 0) {
+            Tour selected = result.getFirst();
+            System.out.println("Name of first trip found: " + selected.getTourName());
+            System.out.println("Id of first trip found: " + selected.getId());
+            System.out.println("Number of seats left in first trip found: " + selected.getSeatsLeft());
+            System.out.println("Number of trips found: " + tourController.getNumTripsFound());
+        } else {
+            System.out.println("No seats left");
+        }
+
+
 
         // stoppar hér -----------------------------------------------------------------
     }

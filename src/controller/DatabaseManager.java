@@ -42,19 +42,19 @@ public class DatabaseManager implements DatabaseManagerInterface {
         int numTripsFound = 0;
 
         String sqlString = "SELECT * FROM DAYTOURS WHERE " +
-                "location LIKE ? AND " +        // 1
-                "timeStart LIKE ? AND " +       // 2
-                "tourType LIKE ? AND " +        // 3
-                "privateTour LIKE ? AND " +     // 4
-                "accessibility LIKE ? AND " +   // 5
-                "guidedTour LIKE ? AND " +      // 6
-                "seatsLeft >= ? AND " +         // 7
-                "price <= ?";                   // 8
+                           "location LIKE ? AND " +        // 1
+                           "timeStart LIKE ? AND " +       // 2
+                           "tourType LIKE ? AND " +        // 3
+                           "privateTour LIKE ? AND " +     // 4
+                           "accessibility LIKE ? AND " +   // 5
+                           "guidedTour LIKE ? AND " +      // 6
+                           "seatsLeft >= ? AND " +         // 7
+                           "price <= ?";                   // 8
 
 
         try {
             connection = DriverManager.getConnection(databaseUrl);
-            PreparedStatement preparedStatement = connection.prepareStatement(sqlString);;
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlString);
 
             preparedStatement.setString(1, filterLocation);
             preparedStatement.setString(2, filterTimeStart.concat("%"));
@@ -69,24 +69,27 @@ public class DatabaseManager implements DatabaseManagerInterface {
 
             while(rs.next())
             {
-                Tour tour = new Tour();
+                if (rs.getInt("seatsLeft") >= filterGroupSize) {
 
-                numTripsFound++;
+                    Tour tour = new Tour();
 
-                tour.setId(rs.getInt("id"));
-                tour.setTourName(rs.getString("tourName"));
-                tour.setTourType(rs.getString("tourType"));
-                tour.setLocation(rs.getString("location"));
-                tour.setAbout(rs.getString("aboutTour"));
-                tour.setTimeStart(rs.getString("timeStart"));
-                tour.setTimeFinish(rs.getString("timeFinish"));
-                tour.setSeatsLeft(rs.getInt("seatsLeft"));
-                tour.setPrivateTour(rs.getInt("privateTour"));
-                tour.setGuidedTour(rs.getInt("guidedTour"));
-                tour.setAccessibility(rs.getInt("accessibility"));
-                tour.setPrice(rs.getInt("price"));
+                    tour.setId(rs.getInt("id"));
+                    tour.setTourName(rs.getString("tourName"));
+                    tour.setTourType(rs.getString("tourType"));
+                    tour.setLocation(rs.getString("location"));
+                    tour.setAbout(rs.getString("aboutTour"));
+                    tour.setTimeStart(rs.getString("timeStart"));
+                    tour.setTimeFinish(rs.getString("timeFinish"));
+                    tour.setSeatsLeft(rs.getInt("seatsLeft"));
+                    tour.setPrivateTour(rs.getInt("privateTour"));
+                    tour.setGuidedTour(rs.getInt("guidedTour"));
+                    tour.setAccessibility(rs.getInt("accessibility"));
+                    tour.setPrice(rs.getInt("price"));
 
-                result.add(tour);
+                    result.add(tour);
+
+                    numTripsFound++;
+                }
             }
 
         } catch (SQLException e) {
@@ -98,7 +101,29 @@ public class DatabaseManager implements DatabaseManagerInterface {
         return result;
     }
 
-    public void removeSeats(int numSeats) {
+    /**
+     * removes the number of seats the customer has chosen to book
+     * @param numSeatsBooked number of seats that the customer is booking
+     * @param tourId the id of the tour that needs to be updated due to booking
+     * @param seatsLeft seats left on the tour that is being booked
+     */
+    public void removeSeats(int numSeatsBooked, int tourId, int seatsLeft) {
+
+        int updatedSeatsLeft = seatsLeft - numSeatsBooked;
+
+        String sqlString ="UPDATE DAYTOURS " +
+                          "SET seatsLeft = ? " +
+                          "WHERE id = ?";
+
+        try {
+            connection = DriverManager.getConnection(databaseUrl);
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlString);
+            preparedStatement.setInt(1, updatedSeatsLeft);
+            preparedStatement.setInt(2, tourId);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+        }
 
     }
 }
