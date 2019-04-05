@@ -9,8 +9,10 @@ public class Customer {
     public String mobile;
     public TourFilter filter;
     public int tourPickID;       // helga added this, should we not save the tour that the customer picks?
+    public Booking booking;
 
-    public Customer(String id, String firstName, String lastName, String email, String mobile, TourFilter filter, int tourPickID) {
+    public Customer(String id, String firstName, String lastName, String email,
+                    String mobile, TourFilter filter, int tourPickID) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

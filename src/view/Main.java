@@ -1,17 +1,25 @@
 package view;
 
 import controller.DatabaseManager;
+import controller.TourController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.Tour;
 import model.TourFilter;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.LinkedList;
 
 public class Main extends Application {
+
+    // búum til eitt instance af db man og tourcontroller sem hægt er að nálgast
+    // annarsstaðar í kerfinu sjá dæmi hér fyrir neðan
+    public static DatabaseManager db = new DatabaseManager();
+    public static TourController tourController = new TourController(db);
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -20,24 +28,24 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
 
+
+        // þetta er til þess að prófa gagnagrunninn hérna fyrir neðan ------------------
         TourFilter filter;
 
-        Date dateStart = new Calendar.Builder()
-                .setDate(2012,2,21)
-                .setTimeOfDay(14,0,0)
-                .build().getTime();
+        filter = new TourFilter(25000, "2","Akureyri",
+                "Bus ride", "06/09/19", true, false,
+                false);
 
-        Date dateFinish = new Calendar.Builder()
-                .setDate(2012,2,21)
-                .setTimeOfDay(22,0,0)
-                .build().getTime();
+        //DatabaseManager db = new DatabaseManager();
+        LinkedList<Tour> result = new LinkedList<Tour>();
+        result = db.selectTours(filter);
 
-        filter = new TourFilter(25000,15000, 8,
-                "Reykjavík", "food", dateStart, dateFinish,
-                true, false, true);
+        Tour selected = result.getFirst();
 
-        DatabaseManager db = new DatabaseManager();
-        db.selectTours(filter);
+        System.out.println("Name of first trip found: " + selected.getTourName());
+        System.out.println("Number of trips found: " + tourController.getNumTripsFound());
+
+        // stoppar hér -----------------------------------------------------------------
     }
 
 
