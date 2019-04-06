@@ -5,29 +5,30 @@ import java.util.Date;
 
 public class TourFilter {
 
-    private int priceHigh;
-    private int priceLow;
-    private int groupSize;
-    private String location;
-    private String tourType;
-    private Date timeStart;
-    private Date timeFinish;
-    private boolean guidedTour;
-    private boolean privateTour;
-    private boolean accessibility;
 
-    public TourFilter(String priceHigh, String priceLow, String groupSize,
+    // þarf að vera public þangað til að það eru komnir setters
+    // TODO: SJÁ FYRIR NEÐAN SETTERANA SEM ÞARF AÐ GERA
+    public int price;
+    public int groupSize;
+    public String location;
+    public String tourType;
+    public String timeStart;    // breytti í string því það kemur sem string úr viðmótinu
+    public boolean guidedTour;  // breytum í date síðar þegar að búið er að velja ferð í viðmóti kv helga
+    public boolean privateTour;
+    public boolean accessibility;
+
+
+
+    public TourFilter(int price, String groupSize,
                       String location, String tourType,
-                      Date timeStart, Date timeFinish, boolean guidedTour,
+                      String timeStart, boolean guidedTour,
                       boolean privateTour, boolean accessibility) {
 
-        this.priceHigh = priceH(Integer.parseInt(priceLow),Integer.parseInt(priceHigh));
-        this.priceLow = priceL(Integer.parseInt(priceLow),Integer.parseInt(priceHigh));
+        this.price = price;
         this.groupSize = gSize(Integer.parseInt(groupSize));
         this.location = location;
         this.tourType = tourType;
         this.timeStart = timeStart;
-        this.timeFinish = timeFinish;
         this.guidedTour = guidedTour;
         this.privateTour = privateTour;
         this.accessibility = accessibility;
@@ -38,42 +39,10 @@ public class TourFilter {
      */
 
     /**
-     * Makes sure PL os lower than PH, if not we return -1
-     *
-     * @param pL Lower price
-     * @param pH Higher price
-     * @return pH or -1
-     */
-    public int priceH(int pL, int pH){
-        //Mögulega breyta ef við fáum streng inn
-        if (pL < pH){
-            return pH;
-        }
-        return -1;
-    }
-
-    /**
-     * Makes sure PH is higher than pL, if not we return -1
-     *
-     * @param pL Lower price
-     * @param pH Higher price
-     * @return pL or -1
-     */
-
-    public int priceL(int pL, int pH){
-        //Mögulega breyta ef við fáum streng inn
-        if (pL < pH){
-            return pL;
-        }
-        return -1;
-    }
-
-    /**
      * Makes sure the group isn't smaller than 0 or larger than 1000
      * @param g
      * @return g or -1
      */
-
     public int gSize(int g){
         if(g < 1000 && g > 0){
             return g;
@@ -82,8 +51,58 @@ public class TourFilter {
     }
 
 
+    // GETTERS ---------------------------------------------
+
+    public int getPrice() {
+        return this.price;
+    }
+
+    public int getGroupSize() {
+        return groupSize;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public String getTourType() {
+        return tourType;
+    }
+
+    public String getTimeStart() {
+        return timeStart;
+    }
+
+    public int isGuidedTour() {
+        int ifTrue = 1;
+        int ifFalse = 0;
+
+        if (this.guidedTour) return ifTrue;
+        else return ifFalse;
+    }
+
+    public int isPrivateTour() {
+        int ifTrue = 1;
+        int ifFalse = 0;
+
+        if (this.privateTour) return ifTrue;
+        else return ifFalse;
+    }
+
+    public int isAccessibility() {
+        int ifTrue = 1;
+        int ifFalse = 0;
+
+        if (this.accessibility) return ifTrue;
+        else return ifFalse;
+    }
 
 
+    // SETTERS -----------------------------------------------
+    // TODO: setja inn settera þannig að þegar tekið er við
+    //       breytum úr viðmóti setjum við upp gildin á réttu
+    //       formi sem passa við gagnagrunns breyturnar.
+    //       þá ættum við að taka út constructorinn ... held ég
 
     /*
     public void TourFound(ArrayList<Tour> tours) {
@@ -111,10 +130,5 @@ public class TourFilter {
                     + "with the total price of: " + tourList.get(i).getPrice());
         }
     }*/
-
-
-    /*ættum að bæta við setters sem athuga hvort að parametrarnir séu réttir
-    * þ.e. að priceHigh sé í rauninni tala og sé stærri en price low o.s.fv.
-    * þá er það bara búið hérna og ekkert vesen seinna meir*/
 
 }
