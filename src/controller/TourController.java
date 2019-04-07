@@ -9,10 +9,13 @@ public class TourController {
 
     public DatabaseManagerInterface databaseManagerInterface;
     public LinkedList<Tour> result;
+    public int numTripsFound;
 
     public TourController(DatabaseManagerInterface databaseManagerInterface) {
         this.databaseManagerInterface = databaseManagerInterface;
     }
+
+    // FUNCTIONS ---------------------------------------------------------------
 
     /**
      * The search method for day tours
@@ -24,7 +27,6 @@ public class TourController {
         return result;
     }
 
-
     /*
     public void bookTour() {
 
@@ -33,4 +35,18 @@ public class TourController {
     public void payTour() {
 
     }*/
+
+
+    // SETTERS ------------------------------------------------------------------
+
+    public void setNumTripsFound(int numTripsFound) {
+        this.numTripsFound = numTripsFound;
+    }
+
+    // GETTERS ------------------------------------------------------------------
+
+
+    public int getNumTripsFound() {
+        return numTripsFound;
+    }
 }
