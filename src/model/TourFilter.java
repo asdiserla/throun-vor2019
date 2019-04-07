@@ -104,6 +104,40 @@ public class TourFilter {
     //       formi sem passa við gagnagrunns breyturnar.
     //       þá ættum við að taka út constructorinn ... held ég
 
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void setGroupSize(int groupSize) {
+        this.groupSize = groupSize;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setTourType(String tourType) {
+        this.tourType = tourType;
+    }
+
+    public void setTimeStart(String timeStart) {
+        this.timeStart = timeStart;
+    }
+
+    public void setGuidedTour(boolean guidedTour) {
+        this.guidedTour = guidedTour;
+    }
+
+    public void setPrivateTour(boolean privateTour) {
+        this.privateTour = privateTour;
+    }
+
+    public void setAccessibility(boolean accessibility) {
+        this.accessibility = accessibility;
+    }
+
+
+
     /*
     public void TourFound(ArrayList<Tour> tours) {
         this.tourList = tours;
