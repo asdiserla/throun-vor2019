@@ -8,12 +8,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model.Customer;
-import model.Tour;
-import model.TourFilter;
-
-import java.util.Calendar;
-import java.util.Date;
-import java.util.LinkedList;
 
 public class Main extends Application {
 
