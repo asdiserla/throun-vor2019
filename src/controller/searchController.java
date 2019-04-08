@@ -3,7 +3,11 @@ package controller;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import model.Customer;
 import model.Tour;
 import view.Main;
@@ -22,7 +26,7 @@ public class searchController {
     public ChoiceBox chosenTourType;
 
 
-    public void getFilters(ActionEvent actionEvent) throws ClassNotFoundException {
+    public void getFilters(ActionEvent actionEvent) throws Exception {
         // using the customer created in main - always using the same customer
         Customer customer = Main.customer;
 
@@ -51,6 +55,7 @@ public class searchController {
             System.out.println("No seats left");
         }
 
+        //setupNextPage();
     }
 
     // activated on window onload
@@ -62,6 +67,10 @@ public class searchController {
 
         chosenTourType.setItems(FXCollections.observableArrayList(
                 "Bus Tour", "Car Ride", "Adventure", "Bar Crawl", "Food Tour", "Jeep Ride", "Beer Tour"));
+    }
+
+    private void setupNextPage() throws Exception {
+        //searchResultsController.setUp();
     }
 
 }
