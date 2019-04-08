@@ -9,16 +9,6 @@ import java.util.LinkedList;
 public class DatabaseManagerSuccess implements DatabaseManagerInterface {
 
     @Override
-    public void openDB() {
-        // gerir ekki neitt og skilar engu
-    }
-
-    @Override
-    public void closeDB() {
-        // gerir ekki neitt og skilar engu
-    }
-
-    @Override
     public LinkedList<Tour> selectTours(TourFilter filter) {
 
         Tour tour1 = new Tour();

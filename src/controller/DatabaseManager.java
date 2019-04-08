@@ -1,11 +1,8 @@
 package controller;
 
-import model.Customer;
 import model.Tour;
 import model.TourFilter;
 import view.Main;
-
-import javax.swing.plaf.synth.SynthTextAreaUI;
 import java.util.LinkedList;
 import java.sql.*;
 
@@ -15,17 +12,12 @@ public class DatabaseManager implements DatabaseManagerInterface {
     private String databaseUrl = "jdbc:sqlite:db/Database.db";;
     private LinkedList<Tour> result = new LinkedList<Tour>();
 
-
-    @Override
-    public void openDB() throws ClassNotFoundException {
-
-    }
-
-    @Override
-    public void closeDB() {
-
-    }
-
+    /**
+     * Searches for tours by all relevant filter variables
+     * @param filter from the customer
+     * @return linked list of tours that match the filter
+     * @throws ClassNotFoundException if there is not a connection to the db
+     */
     @Override
     public LinkedList<Tour> selectTours(TourFilter filter) throws ClassNotFoundException {
 
@@ -101,6 +93,14 @@ public class DatabaseManager implements DatabaseManagerInterface {
     }
 
 
+    /**
+     * Searches by date, location, timeStart, tourType, seatsleft and price excludes the boolean
+     * varables that are used in the searchTours function.
+     * @param filter filter from the customer
+     * @return linked list og tours that match the given filter
+     * @throws ClassNotFoundException if there is not a connection to the db
+     */
+    @Override
     public LinkedList<Tour> searchByDate(TourFilter filter) throws ClassNotFoundException {
 
         String filterLocation = filter.getLocation();

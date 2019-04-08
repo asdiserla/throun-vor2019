@@ -13,7 +13,6 @@ public class Customer {
 
     public Customer() {
         filter = new TourFilter();
-        //booking = new Booking();
     }
 
     // GETTERS --------------------------------------------------------------------------------------------
