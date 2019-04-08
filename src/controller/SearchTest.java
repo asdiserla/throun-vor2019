@@ -36,17 +36,12 @@ public class SearchTest {
         databaseManagerSuccess = new DatabaseManagerSuccess();
         databaseManagerEmpty = new DatabaseManagerEmpty();
 
-        databaseManagerSuccess.openDB();
-        databaseManagerEmpty.openDB();
-
         tourControllerSuccess = new TourController(databaseManagerSuccess);
         tourControllerEmpty = new TourController(databaseManagerEmpty);
     }
 
     @After
     public void tearDown() throws Exception {
-        databaseManagerSuccess.closeDB();
-        databaseManagerEmpty.closeDB();
     }
 
     @Test
