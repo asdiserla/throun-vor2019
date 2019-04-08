@@ -56,7 +56,7 @@ public class searchController {
             System.out.println("No seats left");
         }
 
-        setupNextPage();
+        //setupNextPage();
     }
 
     // activated on window onload
@@ -76,6 +76,8 @@ public class searchController {
         Stage window = new Stage();
         window.setScene(sceneResult);
         window.show();*/
+
+
     }
 
 }
