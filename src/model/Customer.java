@@ -11,6 +11,10 @@ public class Customer {
     public int tourId;        // id of the tour that the customer chooses
     public Booking booking;   // booking for the customer
 
+    public Customer() {
+        filter = new TourFilter();
+        booking = new Booking();
+    }
 
     // GETTERS --------------------------------------------------------------------------------------------
 
