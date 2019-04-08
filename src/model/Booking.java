@@ -1,5 +1,6 @@
 package model;
 
+import controller.DatabaseManager;
 import view.Main;
 
 import java.util.Date;
@@ -55,6 +56,17 @@ public class Booking {
      */
     public String getDate() {
         return tourStart.toString().substring(4,10);
+    }
+
+    /**
+     * *REMOVES* seats from database
+     * should only be called when the tour has been chosen and the seats
+     * are therefore not available anymore
+     */
+    public void removeSeatsFromTour() {
+        DatabaseManager db = new DatabaseManager();
+        int groupSize = Main.customer.getFilter().getGroupSize();
+        db.removeSeats(groupSize, chosenTour.getId(), chosenTour.getSeatsLeft());
     }
 
     // GETTERS --------------------------------------------------------------
