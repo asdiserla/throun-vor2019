@@ -35,8 +35,10 @@ public class searchController {
         customer.filter.setGroupSize(chosenGroupSize.getValue());
         customer.filter.setTourType(chosenTourType.getValue().toString());
 
+        // using db created in Main
         LinkedList<Tour> result = Main.db.selectTours(customer.filter);
 
+        // using tourController created in Main
         Main.tourController.result = result;
 
         /** to see results form search, remove later*/
