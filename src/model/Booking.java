@@ -11,6 +11,15 @@ public class Booking {
     private String start;       // starting time of the tour
     private String finish;      // finishing time of the tour
 
+    public Booking(int tourId, int price, String customerId, String time, String start, String finish) {
+        this.tourId = tourId;
+        this.price = price;
+        this.customerId = customerId;
+        this.time = time;
+        this.start = start;
+        this.finish = finish;
+    }
+
     // GETTERS --------------------------------------------------------------
 
     public int getTourId() {

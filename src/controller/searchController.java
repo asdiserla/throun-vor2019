@@ -41,7 +41,7 @@ public class searchController {
         customer.filter.setTourType(chosenTourType.getValue().toString());
 
         // using db created in Main
-        LinkedList<Tour> result = Main.db.selectTours(customer.filter);
+        LinkedList<Tour> result = Main.db.searchByDate(customer.filter);
 
         // using tourController created in Main
         Main.tourController.result = result;
