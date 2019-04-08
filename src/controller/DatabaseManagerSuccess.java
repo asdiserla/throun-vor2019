@@ -38,4 +38,9 @@ public class DatabaseManagerSuccess implements DatabaseManagerInterface {
 
         return result;
     }
+
+    @Override
+    public LinkedList<Tour> searchByDate(TourFilter filter) {
+        return null;
+    }
 }

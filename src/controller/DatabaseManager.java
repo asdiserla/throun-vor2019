@@ -100,6 +100,7 @@ public class DatabaseManager implements DatabaseManagerInterface {
         return result;
     }
 
+
     public LinkedList<Tour> searchByDate(TourFilter filter) throws ClassNotFoundException {
 
         String filterLocation = filter.getLocation();

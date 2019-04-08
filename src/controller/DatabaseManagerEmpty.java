@@ -22,4 +22,9 @@ public class DatabaseManagerEmpty implements DatabaseManagerInterface {
         LinkedList<Tour> result = new LinkedList<Tour>();
         return result;
     }
+
+    @Override
+    public LinkedList<Tour> searchByDate(TourFilter filter) {
+        return null;
+    }
 }
