@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import model.Customer;
+import model.Payment;
 import model.Tour;
 import view.Main;
 
@@ -55,7 +56,7 @@ public class searchController {
             System.out.println("No seats left");
         }
 
-        //setupNextPage();
+        setupNextPage();
     }
 
     // activated on window onload
@@ -70,7 +71,11 @@ public class searchController {
     }
 
     private void setupNextPage() throws Exception {
-        //searchResultsController.setUp();
+       /* Parent resultView = FXMLLoader.load(getClass().getResource("view/searchResults.fxml"));
+        Scene sceneResult = new Scene(resultView);
+        Stage window = new Stage();
+        window.setScene(sceneResult);
+        window.show();*/
     }
 
 }
