@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.Customer;
 import model.Payment;
@@ -22,9 +23,11 @@ public class searchController {
     public CheckBox chooseTourguide;
     public DatePicker startTrip;
     public ChoiceBox chosenLocation;
-    public Button fintMyTourButton;
+    public Button findMyTourButton;
     public Slider chosenGroupSize;
     public ChoiceBox chosenTourType;
+    public Label currentPrice;
+    public Label currentGroupSize;
 
 
     public void getFilters(ActionEvent actionEvent) throws Exception {
@@ -69,6 +72,19 @@ public class searchController {
         chosenTourType.setItems(FXCollections.observableArrayList(
                 "Bus Tour", "Car Ride", "Adventure", "Bar Crawl", "Food Tour", "Jeep Ride", "Beer Tour"));
     }
+
+    public void currentPriceHandler(MouseEvent mouseEvent) {
+    }
+
+    /*public void currentPriceHandler(MouseEvent mouseEvent) {
+        currentPrice.setText("New value: ");
+    }*/
+/*
+    public void currentPriceHandler(ObservableValue<? extends Number> observable, //
+                        Number oldValue, Number newValue) {
+
+        currentPrice.setText("New value: " + newValue);
+    }*/
 
     private void setupNextPage() throws Exception {
        /* Parent resultView = FXMLLoader.load(getClass().getResource("view/searchResults.fxml"));
