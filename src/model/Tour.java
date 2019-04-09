@@ -23,40 +23,7 @@ public class Tour {
     private boolean accessibility;
     private int seatsLeft;
 
-    private TourController tourController;
-    // var að bæta við kv ásdis
-    // private Boolean freeSeat;
-
-
-
-    // tók út constructorinn því hann meikaði ekki sense lengur.
-
     // FUNCTIONS ----------------------------------------------------------------
-
-    /**
-            *
-            * Á líklega heima einhverstaðar annarsstaðar
-     *
-    public int getSeatsLeft(int numberOfSeatsLeft) {
-        if (numberOfSeatsLeft >= groupSize) {
-            updateSeatsLeft(groupSize);
-        }
-
-        return seatsLeft;
-    }
-
-    */
-    public void updateSeatsLeft(int reservedSeats) {
-        this.seatsLeft = seatsLeft-reservedSeats;
-        /*
-        for (int i = 0; i < numberOfSeats; i++) {
-            if (seatsLeft <= 0) {
-                return;
-            } else {
-                seatsLeft--;
-            }
-        }*/
-    }
 
     // SETTERS -------------------------------------------------------------------
 
@@ -92,7 +59,7 @@ public class Tour {
     }
 
     /**
-     * accessability is an int in the database so it has to be
+     * accessibility is an int in the database so it has to be
      * changed to boolean here
      * @param accessibility
      */
@@ -102,7 +69,7 @@ public class Tour {
     }
 
     /**
-     * accessability is an int in the database so it has to be
+     * guidedTour is an int in the database so it has to be
      * changed to boolean here
      * @param guidedTour
      */
@@ -112,7 +79,7 @@ public class Tour {
     }
 
     /**
-     * accessability is an int in the database so it has to be
+     * privateTour is an int in the database so it has to be
      * changed to boolean here
      * @param privateTour
      */
@@ -120,7 +87,6 @@ public class Tour {
         if (privateTour == 1) this.privateTour = true;
         if (privateTour == 0) this.privateTour = false;
     }
-
 
     public void setId(int id) {
         this.id = id;
@@ -151,7 +117,6 @@ public class Tour {
     }
 
     // GETTERS ---------------------------------------------------------------------
-
 
     public int getId() {
         return id;
@@ -200,4 +165,5 @@ public class Tour {
     public int getPrice() {
         return price;
     }
+
 }
