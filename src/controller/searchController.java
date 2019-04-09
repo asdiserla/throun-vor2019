@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import model.Customer;
 import model.Tour;
 import view.Main;
@@ -17,9 +18,11 @@ public class searchController {
     public CheckBox chooseTourguide;
     public DatePicker startTrip;
     public ChoiceBox chosenLocation;
-    public Button fintMyTourButton;
+    public Button findMyTourButton;
     public Slider chosenGroupSize;
     public ChoiceBox chosenTourType;
+    public Label currentPrice;
+    public Label currentGroupSize;
 
 
     public void getFilters(ActionEvent actionEvent) throws ClassNotFoundException {
@@ -64,4 +67,16 @@ public class searchController {
                 "Bus Tour", "Car Ride", "Adventure", "Bar Crawl", "Food Tour", "Jeep Ride", "Beer Tour"));
     }
 
+    public void currentPriceHandler(MouseEvent mouseEvent) {
+    }
+
+    /*public void currentPriceHandler(MouseEvent mouseEvent) {
+        currentPrice.setText("New value: ");
+    }*/
+/*
+    public void currentPriceHandler(ObservableValue<? extends Number> observable, //
+                        Number oldValue, Number newValue) {
+
+        currentPrice.setText("New value: " + newValue);
+    }*/
 }
