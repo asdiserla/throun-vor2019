@@ -2,7 +2,6 @@ package model;
 
 import controller.DatabaseManager;
 import view.Main;
-
 import java.util.Date;
 
 public class Booking {

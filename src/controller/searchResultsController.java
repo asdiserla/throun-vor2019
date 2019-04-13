@@ -1,16 +1,9 @@
 package controller;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class searchResultsController extends AnchorPane {
     public Label tourName;
@@ -28,11 +21,6 @@ public class searchResultsController extends AnchorPane {
     public AnchorPane anchorPaneResults;
 
 
-    public void showSelectedTour(ContextMenuEvent contextMenuEvent) {
-        System.out.print("hello click on list view");
-    }
+    public void showSelectedTour(ContextMenuEvent contextMenuEvent) { /*not implemented for this assignment*/ }
 
-    public static void setUp() throws IOException {
-
-    }
 }

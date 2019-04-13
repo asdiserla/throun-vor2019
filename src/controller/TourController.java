@@ -2,7 +2,6 @@ package controller;
 
 import model.TourFilter;
 import model.Tour;
-
 import java.util.LinkedList;
 
 public class TourController {
@@ -18,7 +17,7 @@ public class TourController {
     // FUNCTIONS ---------------------------------------------------------------
 
     /**
-     * The search method for day tours
+     * The search method for day tours filtering with all variables
      * @param filter the tour filter that the user chooses
      * @return
      */
@@ -27,20 +26,16 @@ public class TourController {
         return result;
     }
 
+    /**
+     * filtering without boolean variables: accessible, guided, private
+     * @param filter
+     * @return
+     * @throws Exception
+     */
     public LinkedList<Tour> searchByDate(TourFilter filter) throws Exception {
         result = databaseManagerInterface.searchByDate(filter);
         return result;
     }
-
-    /*
-    public void bookTour() {
-
-    }
-
-    public void payTour() {
-
-    }*/
-
 
     // SETTERS ------------------------------------------------------------------
 
@@ -49,7 +44,6 @@ public class TourController {
     }
 
     // GETTERS ------------------------------------------------------------------
-
 
     public int getNumTripsFound() {
         return numTripsFound;

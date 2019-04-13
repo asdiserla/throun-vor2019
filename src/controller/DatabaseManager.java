@@ -9,7 +9,7 @@ import java.sql.*;
 public class DatabaseManager implements DatabaseManagerInterface {
 
     private Connection connection = null;
-    private String databaseUrl = "jdbc:sqlite:db/Database.db";;
+    private String databaseUrl = "jdbc:sqlite:db/Database.db";
     private LinkedList<Tour> result = new LinkedList<Tour>();
 
     /**
@@ -37,12 +37,11 @@ public class DatabaseManager implements DatabaseManagerInterface {
                            "location LIKE ? AND " +        // 1
                            "timeStart LIKE ? AND " +       // 2
                            "tourType LIKE ? AND " +        // 3
-                           "privateTour = ? AND " +     // 4
-                           "accessibility = ? AND " +   // 5
-                           "guidedTour = ? AND " +      // 6
+                           "privateTour = ? AND " +        // 4
+                           "accessibility = ? AND " +      // 5
+                           "guidedTour = ? AND " +         // 6
                            "seatsLeft >= ? AND " +         // 7
                            "price <= ?";                   // 8
-
 
         try {
             connection = DriverManager.getConnection(databaseUrl);
@@ -61,7 +60,6 @@ public class DatabaseManager implements DatabaseManagerInterface {
 
             while(rs.next())
             {
-
                 Tour tour = new Tour();
 
                 tour.setId(rs.getInt("id"));
@@ -119,7 +117,6 @@ public class DatabaseManager implements DatabaseManagerInterface {
                 "seatsLeft >= ? AND " +         // 4
                 "price <= ?";                   // 5
 
-
         try {
             connection = DriverManager.getConnection(databaseUrl);
             PreparedStatement preparedStatement = connection.prepareStatement(sqlString);
@@ -134,7 +131,6 @@ public class DatabaseManager implements DatabaseManagerInterface {
 
             while(rs.next())
             {
-
                 Tour tour = new Tour();
 
                 tour.setId(rs.getInt("id"));

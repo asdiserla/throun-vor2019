@@ -11,6 +11,9 @@ import model.Customer;
 
 public class Main extends Application {
 
+    // creating the tourcontroller, databasemanager and customer objects,
+    // we will be using them to test our search engine later on in the
+    // process and print out results on the command line
     public static DatabaseManager db = new DatabaseManager();
     public static TourController tourController = new TourController(db);
     public static Customer customer = new Customer();
@@ -19,7 +22,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("filter.fxml"));
         primaryStage.setTitle("Day tours");
-        primaryStage.setScene(new Scene(root, 600, 600));
+        primaryStage.setScene(new Scene(root, 700, 600));
         primaryStage.show();
     }
 

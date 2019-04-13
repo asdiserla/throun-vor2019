@@ -1,12 +1,10 @@
 package model;
 
-import javafx.scene.image.Image;
+import view.Main;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import controller.TourController;
 
 public class Tour {
 
@@ -23,7 +21,38 @@ public class Tour {
     private boolean accessibility;
     private int seatsLeft;
 
-    // FUNCTIONS ----------------------------------------------------------------
+    // FUNCTIONS -----------------------------------------------------------------
+
+    /**
+     * @return total price of trip calculated for the whole group
+     */
+    public int getPriceForGroup() {
+        int groupSize = Main.customer.getFilter().getGroupSize();
+        int tourPrice = this.getPrice();
+        return groupSize*tourPrice;
+    }
+
+    /**
+     * @return the start time of day of the chosen tour fx: "18:00"
+     */
+    public String getStartTime() {
+        return timeStart.toString().substring(11,16);
+    }
+
+    /**
+     * @return the finish time of day of the chosen tour fx: "22:00"
+     */
+    public String getFinishTime() {
+        return timeFinish.toString().substring(11,16);
+    }
+
+    /**
+     * simplified string of the date that is only the month and day of month fx.: "Jun 05"
+     * @return date of the tour month and day of month
+     */
+    public String getDate() {
+        return timeStart.toString().substring(4,10);
+    }
 
     // SETTERS -------------------------------------------------------------------
 
