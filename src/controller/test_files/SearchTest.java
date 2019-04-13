@@ -1,5 +1,6 @@
-package controller;
+package controller.test_files;
 
+import controller.TourController;
 import model.Tour;
 import model.TourFilter;
 import org.junit.After;
@@ -14,30 +15,13 @@ import static org.junit.Assert.*;
 public class SearchTest {
 
     private TourFilter filter;
-
     private DatabaseManagerSuccess databaseManagerSuccess;
     private DatabaseManagerEmpty databaseManagerEmpty;
-
-    private TourController tourControllerSuccess;
-    private TourController tourControllerEmpty;
-
+    private TourController tourController;
     private LinkedList<Tour> expectedResult;
 
     @Before
     public void setUp() throws Exception {
-
-        /*
-        filter = new TourFilter(25000, "2","Akureyri",
-                "Bus ride", "06/09/19", true, false,
-                false);
-*/
-        expectedResult = new LinkedList<Tour>();
-
-        databaseManagerSuccess = new DatabaseManagerSuccess();
-        databaseManagerEmpty = new DatabaseManagerEmpty();
-
-        tourControllerSuccess = new TourController(databaseManagerSuccess);
-        tourControllerEmpty = new TourController(databaseManagerEmpty);
     }
 
     @After
@@ -45,23 +29,36 @@ public class SearchTest {
     }
 
     @Test
-    public void searchTestSucces() throws Exception {
-        /*
-        LinkedList<Tour> result = tourControllerSuccess.search(filter);
+    public void searchTestSuccess() throws Exception {
+        filter = new TourFilter();
+        filter.setTourType("Food Tour");
+        filter.setGroupSize(2);
+        filter.setLocation("Reykjavík");
+        filter.setPrivateTour(true);
+        filter.setGuidedTour(true);
+        filter.setAccessibility(true);
+        filter.setPrice(20000);
+
+        expectedResult = new LinkedList<Tour>();
+        databaseManagerSuccess = new DatabaseManagerSuccess();
+        tourController = new TourController(databaseManagerSuccess);
+
+        LinkedList<Tour> result = tourController.search(filter);
+
         for (int i = 0; i < expectedResult.size(); i++) {
             assertSame(filter.getLocation(), result.get(i).getLocation());
             assertSame(filter.getTourType(), result.get(i).getTourType());
             assertSame(filter.isAccessibility(), result.get(i).isAccessibility());
             assertSame(filter.isGuidedTour(), result.get(i).isGuidedTour());
             assertSame(filter.isPrivateTour(), result.get(i).isAccessibility());
-            //assertSame("true", filter.getTimeStart().equals(result.get(i).getTimeStart()));
         }
-        */
     }
 
     @Test
     public void searchTestEmpty() throws Exception {
-        LinkedList<Tour> result = tourControllerEmpty.search(filter);
+        databaseManagerEmpty = new DatabaseManagerEmpty();
+        tourController = new TourController(databaseManagerEmpty);
+        LinkedList<Tour> result = tourController.search(filter);
         assertNotNull(result);
         assertEquals(0, result.size());
     }

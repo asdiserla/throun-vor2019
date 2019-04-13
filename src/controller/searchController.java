@@ -14,6 +14,8 @@ import model.Payment;
 import model.Tour;
 import view.Main;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 
 public class searchController {
@@ -49,51 +51,47 @@ public class searchController {
         // using tourController created in Main
         Main.tourController.result = result;
 
-        /** to see results form search, remove later*/
+        /** to see results from search on the command line*/
         if (result.size() > 0) {
             Tour selected = result.getFirst();
-            System.out.println("Name of first trip found: " + selected.getTourName());
-            System.out.println("Id of first trip found: " + selected.getId());
-            System.out.println("Number of seats left in first trip found: " + selected.getSeatsLeft());
+            System.out.println("Here is all the information about the first tour found that matches your wishes: ");
+            System.out.println("The tour starts at: " + selected.getStartTime() + " o'clock");
+            System.out.println("The tour finishes at: " + selected.getFinishTime() + " o'clock");
+            System.out.println("The date of the tour is: " + selected.getDate());
+            System.out.println("The location of your tour is: " +  selected.getLocation());
+            System.out.println("The price for your group is: " + selected.getPriceForGroup());
+            System.out.println("Here is a description of the tour: " + selected.getAbout());
+            System.out.println("The tour is guided (true/false): " +  selected.isGuidedTour());
+            System.out.println("The tour is accessible (true/false): " +  selected.isAccessibility());
+            System.out.println("The tour is private (true/false): " +  selected.isPrivateTour());
         } else {
-            System.out.println("No seats left");
+            System.out.println("No tour found that matches your wishes, sorry!");
         }
-
-        //setupNextPage();
     }
 
     // activated on window onload
     @FXML
     protected void initialize(){
-        // initialize the choiceBox chosenLocation
+        // initialize the choiceBox chosenLocation choices
         chosenLocation.setItems(FXCollections.observableArrayList(
                 "Reykjavík", "Akureyri"));
 
         chosenTourType.setItems(FXCollections.observableArrayList(
                 "Bus Tour", "Car Ride", "Adventure", "Bar Crawl", "Food Tour", "Jeep Ride", "Beer Tour"));
+
+
+        // initialise all filter values so we are able to pick date
+        // and filters that exist in the database
+        chosenTourType.setValue("Food Tour");
+        chosenPrice.setValue(20000);
+        startTrip.setValue(LocalDate.of(2019, 7, 5));
+        chosenGroupSize.setValue(2);
+        choosePrivat.setSelected(true);
+        chooseTourguide.setSelected(true);
+        disabilityFriendly.setSelected(true);
+        chosenLocation.setValue("Reykjavík");
     }
 
     public void currentPriceHandler(MouseEvent mouseEvent) {
     }
-
-    /*public void currentPriceHandler(MouseEvent mouseEvent) {
-        currentPrice.setText("New value: ");
-    }*/
-/*
-    public void currentPriceHandler(ObservableValue<? extends Number> observable, //
-                        Number oldValue, Number newValue) {
-
-        currentPrice.setText("New value: " + newValue);
-    }*/
-
-    private void setupNextPage() throws Exception {
-       /* Parent resultView = FXMLLoader.load(getClass().getResource("view/searchResults.fxml"));
-        Scene sceneResult = new Scene(resultView);
-        Stage window = new Stage();
-        window.setScene(sceneResult);
-        window.show();*/
-
-
-    }
-
 }
